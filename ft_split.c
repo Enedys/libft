@@ -15,7 +15,7 @@
 static void	cleaner(char **ptr, int iter)
 {
 	while (iter--)
-		free(*ptr--);
+		free(*ptr++);
 }
 
 static int	count_words(char const *s, char c)
