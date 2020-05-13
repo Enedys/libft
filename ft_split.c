@@ -15,7 +15,7 @@
 static void	cleaner(char **ptr, int iter)
 {
 	while (iter--)
-		free(*ptr++);
+		free(*ptr--);
 }
 
 static int	count_words(char const *s, char c)
@@ -40,6 +40,7 @@ static int	add_words(char **ptr, char const *s, char c)
 {
 	char	*st;
 	size_t	iter;
+	char	**tmp;
 
 	iter = 0;
 	while (*s)
@@ -54,7 +55,7 @@ static int	add_words(char **ptr, char const *s, char c)
 		iter++;
 		if (!(*ptr++ = ft_substr(st, 0, s - st)))
 		{
-			cleaner(ptr, iter);
+			cleaner(tmp, iter);
 			return (0);
 		}
 	}
