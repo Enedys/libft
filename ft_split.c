@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Kwillum <daniilxod@gmail.com>              +#+  +:+       +#+        */
+/*   By: kwillum <kwillum@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 01:31:53 by Kwillum           #+#    #+#             */
-/*   Updated: 2020/05/07 15:37:32 by Kwillum          ###   ########.fr       */
+/*   Updated: 2020/08/24 21:05:52 by kwillum          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 static void	cleaner(char **ptr, int iter)
 {
+	char	**tmp;
+
+	tmp = ptr;
 	while (iter--)
 		free(*ptr++);
+	free(tmp);
 }
 
 static int	count_words(char const *s, char c)
@@ -43,6 +47,7 @@ static int	add_words(char **ptr, char const *s, char c)
 	char	**tmp;
 
 	iter = 0;
+	tmp = ptr;
 	while (*s)
 	{
 		while (*s == c)
